@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  vrising:
+    privileged: true
+    container_name: v-rising
+    build: .
+    image: uwbfritzvrising:latest
+    volumes:
+      - type: bind
+        source: ./saves
+        target: /saves
+    environment:
+      - V_RISING_NAME=Undertow
+      - V_RISING_PASSW=stinkfist
+      - V_RISING_SAVE_NAME=save1
+      - V_RISING_PUBLIC_LIST=true
+      - V_RISING_SETTING_PRESET=
+    ports:
+      - 9876:9876/udp
+      - 9877:9877/udp
